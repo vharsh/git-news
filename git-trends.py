@@ -4,7 +4,7 @@ import datetime
 
 def askGithub(dateCreated, lang, sortOrder = True):
     payload = { 'q' : ['language:' + lang,
-                'created:>' + str(dateCreated)],
+                'created:' + dateCreated],
 		'sort': 'stars',
 		'order': 'desc' if sortOrder else 'asc',
               }
@@ -13,4 +13,5 @@ def askGithub(dateCreated, lang, sortOrder = True):
     print(x.content)
 
 if __name__ == '__main__':
-    askGithub(datetime.date.today(), 'go')
+    askGithub(str(datetime.date.today()), 'go')
+
